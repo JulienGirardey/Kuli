@@ -1,0 +1,153 @@
+/* Post Card Styles */
+
+.post-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  max-width: 600px;
+  transition: border-color 0.2s ease;
+}
+
+.post-card:hover {
+  border-color: #555;
+}
+
+/* En-tête du post */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.author-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.author-username {
+  color: #999;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.post-timestamp {
+  color: #666;
+  font-size: 12px;
+}
+
+/* Contenu du post */
+.post-content {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.post-content p {
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+/* Image du post */
+.post-image-container {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Pied de page du post */
+.post-footer {
+  border-top: 1px solid #333;
+  padding-top: 12px;
+}
+
+/* Statistiques du post */
+.post-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #999;
+}
+
+.stat {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.stat:hover {
+  color: #e0e0e0;
+}
+
+/* Actions du post */
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.action-btn:hover {
+  background-color: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+}
+
+.action-icon {
+  font-size: 16px;
+}
+
+.action-text {
+  display: none;
+}
+
+/* Afficher le texte des actions sur écrans plus larges */
+@media (min-width: 640px) {
+  .action-text {
+    display: inline;
+  }
+}

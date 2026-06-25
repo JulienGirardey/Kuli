@@ -1,28 +1,14 @@
-import { useState, useEffect } from 'react'
+/**
+ * App Component
+ * 
+ * Composant racine de l'application.
+ * Affiche la MainPage avec tous les composants (StoryBar, Posts, NavBar).
+ * Peut être étendu avec React Router pour gérer plusieurs pages.
+ */
+
+import MainPage from './pages/MainPage'
+import './App.css'
 
 export default function App() {
-  const [backendStatus, setBackendStatus] = useState('')
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/api/health')
-      .then(res => res.json())
-      .then(data => setBackendStatus(data.status))
-      .catch(() => setBackendStatus('Backend not connected'))
-      .finally(() => setLoading(false))
-  }, [])
-
-  return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>🎯 Kuli</h1>
-      <p>React + Express Setup</p>
-      {loading ? (
-        <p>Checking backend...</p>
-      ) : (
-        <p style={{ color: backendStatus.includes('running') ? 'green' : 'red' }}>
-          ✓ {backendStatus}
-        </p>
-      )}
-    </div>
-  )
+  return <MainPage />
 }
