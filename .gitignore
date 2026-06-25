@@ -1,0 +1,92 @@
+# ================================
+# Node.js & npm
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ================================
+# Build & Distribution
+# ================================
+dist/
+build/
+*.tsbuildinfo
+
+# ================================
+# Environment Variables
+# ================================
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# ================================
+# IDE & Editor Settings
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+.AppleDouble
+.LSOverride
+*.sublime-project
+*.sublime-workspace
+.vim/
+*.vimrc
+
+# ================================
+# OS Specific Files
+# ================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ================================
+# Runtime Logs
+# ================================
+logs/
+*.log
+lerna-debug.log*
+
+# ================================
+# Temporary Files
+# ================================
+tmp/
+temp/
+.cache/
+.parcel-cache/
+dist-ssr/
+coverage/
+
+# ================================
+# Testing
+# ================================
+.coverage
+.nyc_output/
+*.lcov
+
+# ================================
+# Vite Specific
+# ================================
+.vite/
+
+# ================================
+# Session Files
+# ================================
+*.session
+session.json
+
+# ================================
+# Misc
+# ================================
+.eslintcache
+.prettierignore
