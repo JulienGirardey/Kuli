@@ -72,8 +72,6 @@ const MOCK_POSTS = [
 ]
 
 export default function MainPage() {
-  // État pour l'onglet actif de la navbar
-  const [activeTab, setActiveTab] = useState('home')
   // État pour les posts (peut être synchronisé avec une API)
   const [posts, setPosts] = useState(MOCK_POSTS)
   // État pour les stories
@@ -118,16 +116,6 @@ export default function MainPage() {
     // À implémenter : ouvrir un dialog de partage ou copier le lien
   }
 
-  /**
-   * Gère le changement d'onglet dans la navbar
-   * @param {string} tabName - Le nouvel onglet actif
-   */
-  const handleTabChange = (tabName) => {
-    setActiveTab(tabName)
-    console.log(`Switched to ${tabName} tab`)
-    // À implémenter : charger du contenu selon l'onglet
-  }
-
   return (
     <div className="main-page">
       {/* Story Bar en haut */}
@@ -135,37 +123,21 @@ export default function MainPage() {
 
       {/* Contenu principal */}
       <div className="main-content">
-        {activeTab === 'home' && (
-          <div className="feed-container">
-            {posts.map((post) => (
-              <Post
-                key={post.id}
-                {...post}
-                onLike={handleLike}
-                onComment={handleComment}
-                onShare={handleShare}
-              />
-            ))}
-          </div>
-        )}
-
-        {activeTab === 'messages' && (
-          <div className="content-placeholder">
-            <h2>Messages</h2>
-            <p>Messages functionality coming soon...</p>
-          </div>
-        )}
-
-        {activeTab === 'profile' && (
-          <div className="content-placeholder">
-            <h2>Profile</h2>
-            <p>Profile page coming soon...</p>
-          </div>
-        )}
+        <div className="feed-container">
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              {...post}
+              onLike={handleLike}
+              onComment={handleComment}
+              onShare={handleShare}
+            />
+          ))}
+        </div>
       </div>
 
       {/* NavBar en bas */}
-      <NavBar activeTab={activeTab} onTabChange={handleTabChange} unreadMessages={3} />
+      <NavBar unreadMessages={3} />
     </div>
   )
 }

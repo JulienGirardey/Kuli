@@ -7,43 +7,43 @@
  * - Account Wall: Profil utilisateur
  * 
  * Props:
- *   - activeTab: string - Onglet actif ('home', 'messages', 'profile')
- *   - onTabChange: (tabName: string) => void - Callback quand on change d'onglet
+ *   - activeTab: string - Onglet actif ('/', '/messages', '/profile')
  *   - unreadMessages: number (optionnel) - Nombre de messages non lus à afficher
  */
 
+import { Link, useLocation } from 'react-router-dom'
 import './NavBar.css'
 
 export default function NavBar({
-  activeTab = 'home',
-  onTabChange = () => {},
   unreadMessages = 0,
 }) {
+  const location = useLocation()
+
   // Configuration des onglets de la navbar
   const tabs = [
-    { id: 'home', label: 'Home', icon: '🏠' },
-    { id: 'messages', label: 'Messages', icon: '💬' },
-    { id: 'profile', label: 'Profile', icon: '👤' },
+    { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/messages', label: 'Messages', icon: '💬' },
+    { path: '/profile', label: 'Profile', icon: '👤' },
   ]
 
   return (
     <nav className="nav-bar">
       <div className="nav-container">
         {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={`nav-item ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => onTabChange(tab.id)}
+          <Link
+            key={tab.path}
+            to={tab.path}
+            className={`nav-item ${location.pathname === tab.path ? 'active' : ''}`}
             title={tab.label}
           >
             <span className="nav-icon">{tab.icon}</span>
             <span className="nav-label">{tab.label}</span>
 
             {/* Badge pour afficher le nombre de messages non lus */}
-            {tab.id === 'messages' && unreadMessages > 0 && (
+            {tab.path === '/messages' && unreadMessages > 0 && (
               <span className="notification-badge">{unreadMessages}</span>
             )}
-          </button>
+          </Link>
         ))}
       </div>
     </nav>
